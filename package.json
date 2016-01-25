@@ -1,0 +1,22 @@
+{
+  "name": "review",
+  "version": "0.0.1",
+  "author": "Mehdi Benadda",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mbenadda/review.git"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.4.9",
+    "gulp": "^3.9.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.19",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.3",
+    "phantomjs": "^2.1.2"
+  },
+  "dependencies": {
+    "angular": "^1.4.9"
+  }
+}
