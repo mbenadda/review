@@ -20,7 +20,10 @@ module.exports = function (config) {
       'node_modules/angular/angular.js',
       'node_modules/angular-mocks/angular-mocks.js',
       // App files and tests
-      'app/**/*.js'
+      'app/**/*.js',
+      // Templates
+      // NB: unit tests are run on the project source files, but we still need to compile templates so we can access them
+      'build/templates.js'
     ],
 
 
