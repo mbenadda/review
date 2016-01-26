@@ -3,10 +3,18 @@ var Server = require('karma').Server;
 
 var concat = require('gulp-concat');
 var jade = require('gulp-jade');
+var less = require('gulp-less');
 var ngHtml2Js = require("gulp-ng-html2js");
 var rename = require('gulp-rename');
 
-// Process the templates so we can properly test the components
+// Compile our LESS files into CSS
+gulp.task('css', function () {
+  return gulp.src('app/styles.less')
+    .pipe(less())
+    .pipe(gulp.dest('build/'));
+});
+
+// Process the templates
 gulp.task('templates', function () {
   // Preprocess JADE templates before passing them to html2js
   return gulp.src([ 'app/**/*.tpl.jade' ])
@@ -21,8 +29,9 @@ gulp.task('templates', function () {
 });
 
 // Run the unit tests once using Karma/PhantomJS
+// NB: we need the templates modules to run the unit tests
 gulp.task('test', [ 'templates' ], function (done) {
   new Server({ configFile: __dirname + '/karma_conf.js' }).start(null, done);
 });
 
-gulp.task('default', [ 'test' ]);
+gulp.task('default', [ 'css', 'templates', 'test' ]);
