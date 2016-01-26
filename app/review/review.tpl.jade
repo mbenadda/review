@@ -1,0 +1,28 @@
+.review-form
+
+  h1 Review
+
+  form(name='vm.review_form')
+    h3 Rating
+    review-stars(rating='vm.rating')
+
+    div(ng-if='vm.review_form.$submitted && !vm.rating') Please select a rating.
+
+    h3 Email Address
+    input(type='email'
+          name='email'
+          ng-model='vm.email'
+          required
+          placeholder='Enter your email')
+
+    div(ng-messages='vm.review_form.email.$error' ng-if='vm.review_form.$submitted')
+      div(ng-message='required') Please enter an email address.
+      div(ng-message='email') This is not a valid email address.
+
+    h3 Comment
+    textarea(rows='4'
+             name='comment'
+             ng-model='vm.comment'
+             placeholder='Enter your comment')
+
+    input(type='submit' ng-click='vm.submit()' value='Submit')

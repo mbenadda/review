@@ -18,6 +18,7 @@ module.exports = function (config) {
     files: [
       // Dependencies
       'node_modules/angular/angular.js',
+      'node_modules/angular-messages/angular-messages.js',
       'node_modules/angular-mocks/angular-mocks.js',
       // App files and tests
       'app/**/*.js',
