@@ -1,0 +1,2 @@
+.review-stars
+  .review-stars__star(ng-repeat='rating in [ 1, 2, 3, 4, 5 ]' ng-click='vm.set_rating(rating)' ng-class="{ 'review-stars__star--full': vm.rating_hover ? vm.rating_hover >= rating : vm.rating >= rating }" ng-mouseover='vm.rating_hover = rating' ng-mouseleave='vm.rating_hover = 0') ☆

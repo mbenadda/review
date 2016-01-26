@@ -1,0 +1,15 @@
+.review-stars {
+
+  &__star {
+    display: inline-block;
+    width: 20px;
+    cursor: pointer;
+
+    &--full::before {
+      // Note: this is the utf-8 character for a full star.
+      // By default our review-stars__star elements contain an empty star
+      content: '\2605';
+      position: absolute;
+    }
+  }
+}
