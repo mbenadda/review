@@ -28,10 +28,18 @@ gulp.task('templates', function () {
     .pipe(gulp.dest('build/'));
 });
 
+gulp.task('copy', function () {
+  return gulp.src([ 'app/**/*.js', '!app/**/*.unit.spec.js',
+                    'app/index.html',
+                    'node_modules/angular/angular.js',
+                    'node_modules/angular-messages/angular-messages.js' ])
+    .pipe(gulp.dest('build/'));
+})
+
 // Run the unit tests once using Karma/PhantomJS
 // NB: we need the templates modules to run the unit tests
 gulp.task('test', [ 'templates' ], function (done) {
   new Server({ configFile: __dirname + '/karma_conf.js' }).start(null, done);
 });
 
-gulp.task('default', [ 'css', 'templates', 'test' ]);
+gulp.task('default', [ 'css', 'templates', 'test', 'copy' ]);
